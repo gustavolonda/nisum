@@ -10,16 +10,11 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import com.iverno.gus.userservice.registration.user.domain.entity.UserEntity;
+import com.iverno.gus.commonservice.endpoint.domain.entity.BaseGeneralEntity;
 
-import lombok.Builder;
-import lombok.Data;
-
-@Data
-@Builder
 @Table
 @Entity
-public class PhoneEntity {
+public class PhoneEntity extends BaseGeneralEntity{
 	@Id
 	@GeneratedValue(generator = "uuid2")
 	@GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")

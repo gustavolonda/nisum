@@ -15,16 +15,13 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.iverno.gus.commonservice.endpoint.domain.entity.BaseGeneralEntity;
 import com.iverno.gus.userservice.registration.phone.domain.entity.PhoneEntity;
 
-import lombok.Builder;
-import lombok.Data;
 
-@Data
-@Builder
 @Table
 @Entity
-public class UserEntity {
+public class UserEntity extends BaseGeneralEntity {
 	@Id
 	@GeneratedValue(generator = "uuid2")
 	@GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
@@ -42,4 +39,5 @@ public class UserEntity {
 	@OneToMany
     @JoinColumn(name = "fk_userphone")
     private Set<PhoneEntity> phones = new HashSet<PhoneEntity>();	
+	
 }
