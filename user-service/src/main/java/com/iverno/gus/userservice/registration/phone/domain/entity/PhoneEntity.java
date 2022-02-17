@@ -21,18 +21,20 @@ import lombok.Data;
 @Entity
 public class PhoneEntity {
 	@Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "id", columnDefinition = "text")
-    private String  id;
-	@NotBlank	
+	@GeneratedValue(generator = "uuid2")
+	@GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
+	@Column(name = "id", columnDefinition = "text")
+	private String id;
+	@NotBlank
 	@NotNull
 	private String number;
-	@NotBlank	
+	@NotBlank
 	@NotNull
+	@Column(name = "city_code")
 	private String cityCode;
-	@NotBlank	
-	@NotNull 
+	@NotBlank
+	@NotNull
+	@Column(name = "contry_code")
 	private String contryCode;
 
 }
