@@ -18,7 +18,7 @@ public class PhoneEntity extends BaseGeneralEntity{
 	@Id
 	@GeneratedValue(generator = "uuid2")
 	@GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
-	@Column(name = "id", columnDefinition = "text")
+	@Column(name = "id", columnDefinition = "varchar(255)")
 	private String id;
 	@NotBlank
 	@NotNull
