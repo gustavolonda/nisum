@@ -3,6 +3,10 @@ CREATE TABLE users (
     name varchar(255),
     email varchar(255),
     password varchar(255),
+    status varchar(1),
+    create_date timestamp  NULL,
+    create_update timestamp  NULL,
+    last_login timestamp  NULL,
     PRIMARY KEY (id)
 );
 
@@ -12,6 +16,9 @@ CREATE TABLE phones (
     city_code varchar(255),
     contry_code varchar(255),
     user_id varchar(255) NOT NULL,
+    status varchar(1),
+    create_date timestamp  NULL,
+    create_update timestamp  NULL,
     PRIMARY KEY (id),
     CONSTRAINT FK_UserPhone FOREIGN KEY (user_id)
     REFERENCES users(id)
