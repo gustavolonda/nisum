@@ -33,6 +33,9 @@ public class UserService  extends EndPointServiceImpl<UserEntity, String> {
 	@Override
 	public UserEntity runCreate(UserEntity entity) {
 		entity.setCreateDate(now());
+		entity.setLastLogin(now());
+		entity.setCreateUpdate(now());
+		entity.setStatus(StatusDomain.ACTIVE);
 		return entity;
 	}
 

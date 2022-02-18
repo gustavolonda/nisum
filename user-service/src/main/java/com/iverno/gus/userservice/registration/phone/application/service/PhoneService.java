@@ -32,6 +32,8 @@ public class PhoneService extends EndPointServiceImpl<PhoneEntity, String> {
 	@Override
 	public PhoneEntity runCreate(PhoneEntity entity) {
 		entity.setCreateDate(now());
+		entity.setCreateUpdate(now());
+		entity.setStatus(StatusDomain.ACTIVE);
 		return entity;
 	}
 

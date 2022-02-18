@@ -1,5 +1,8 @@
 package com.iverno.gus.userservice.registration.phone.domain.entity;
 
+import java.sql.Timestamp;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,8 +14,17 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.GenericGenerator;
 
 import com.iverno.gus.commonservice.endpoint.domain.entity.BaseGeneralEntity;
+import com.iverno.gus.userservice.registration.user.domain.entity.UserEntity;
 
-@Table
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "phones")
 @Entity
 public class PhoneEntity extends BaseGeneralEntity{
 	@Id

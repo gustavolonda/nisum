@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -18,9 +19,18 @@ import org.hibernate.annotations.GenericGenerator;
 
 import com.iverno.gus.commonservice.endpoint.domain.entity.BaseGeneralEntity;
 import com.iverno.gus.userservice.registration.phone.domain.entity.PhoneEntity;
+import static com.iverno.gus.userservice.registration.user.confing.Constraints.EMAIL_PATTERN;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Table
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "users")
 @Entity
 public class UserEntity extends BaseGeneralEntity {
 	@Id
@@ -34,11 +44,13 @@ public class UserEntity extends BaseGeneralEntity {
 	@NotBlank
 	@NotNull
 	private String password;
+	@Email(regexp = EMAIL_PATTERN)
 	@NotBlank
 	@NotNull
+	@Column(unique = true)
 	private String email;
 	@OneToMany
-    @JoinColumn(name = "fk_userphone")
+    @JoinColumn(name = "id")
     private Set<PhoneEntity> phones = new HashSet<PhoneEntity>();
 	@Column(name = "last_login", columnDefinition = "timestamp NULL")
     private Timestamp lastLogin;

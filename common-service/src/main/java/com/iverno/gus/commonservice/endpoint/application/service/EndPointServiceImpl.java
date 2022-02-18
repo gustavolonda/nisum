@@ -11,11 +11,13 @@ public abstract class  EndPointServiceImpl<T, ID> implements IEndPointService<T,
 
 	@Override
 	public T save(T entity) {
+		entity = runCreate(entity);
        	return getDao().save(entity);
 	}
 
 	@Override
 	public T update(T entity) {
+		entity = runUpdate(entity);
        	return getDao().save(entity);
 	}
 
