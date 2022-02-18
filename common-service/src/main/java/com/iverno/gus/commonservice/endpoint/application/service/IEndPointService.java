@@ -6,6 +6,8 @@ public interface IEndPointService <T, ID> {
 
 	T save(T entity);
 
+	T update(T entity);
+	
 	T delete(ID id);
 	
 	T get(ID id);

@@ -14,11 +14,15 @@ public abstract class  EndPointServiceImpl<T, ID> implements IEndPointService<T,
        	return getDao().save(entity);
 	}
 
+	@Override
+	public T update(T entity) {
+       	return getDao().save(entity);
+	}
 
 	@Override
 	public T delete(ID id) {
 		T entity = get(id);
-		return setEntityStatus(entity);
+		return statusChangeDelete(entity);
 	}
 
 	@Override
@@ -36,9 +40,11 @@ public abstract class  EndPointServiceImpl<T, ID> implements IEndPointService<T,
 		getDao().findAll().forEach(obj -> returnList.add(obj));
 		return returnList;
 	}
+	
+	
 
 	public abstract JpaRepository<T, ID> getDao();
-	public abstract T setEntityStatus(T entity);
-	public abstract T setDateCreate(T entity);
-	public abstract T setDateUpdate(T entity);
+	public abstract T statusChangeDelete(T entity);
+	public abstract T runCreate(T entity);
+	public abstract T runUpdate(T entity);
 }
