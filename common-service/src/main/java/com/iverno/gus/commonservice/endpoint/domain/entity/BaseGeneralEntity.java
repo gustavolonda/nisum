@@ -14,10 +14,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @MappedSuperclass
 public class BaseGeneralEntity {
-	@Column( columnDefinition = "timestamp NULL")
+	@Column(name = "create_date", columnDefinition = "timestamp NULL")
     public Timestamp createDate;
-    @Column( columnDefinition = "timestamp NULL")
+    @Column(name = "create_update", columnDefinition = "timestamp NULL")
     private Timestamp createUpdate;
-    @Column(columnDefinition = "boolean default true")
+    @Column(columnDefinition = "varchar(1)")
     private String status;
 }
