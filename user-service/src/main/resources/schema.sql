@@ -4,6 +4,7 @@ CREATE TABLE users (
     email varchar(255),
     password varchar(255),
     status varchar(1),
+    role varchar(10),
     UNIQUE (email),
     create_date timestamp  NULL,
     create_update timestamp  NULL,

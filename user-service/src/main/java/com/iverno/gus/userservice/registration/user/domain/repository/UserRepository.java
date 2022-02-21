@@ -7,5 +7,6 @@ import com.iverno.gus.userservice.registration.user.domain.entity.UserEntity;
 
 @Repository
 public interface UserRepository  extends JpaRepository<UserEntity, String> {
-
+	UserEntity findFirstByEmail(String email);
+	
 }

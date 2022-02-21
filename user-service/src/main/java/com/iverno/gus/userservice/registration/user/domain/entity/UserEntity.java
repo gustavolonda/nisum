@@ -1,7 +1,9 @@
 package com.iverno.gus.userservice.registration.user.domain.entity;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -49,9 +51,12 @@ public class UserEntity extends BaseGeneralEntity {
 	@NotNull
 	@Column(unique = true)
 	private String email;
+	@NotBlank
+	@NotNull
+	private String role;
 	@OneToMany
     @JoinColumn(name = "id")
-    private Set<PhoneEntity> phones = new HashSet<PhoneEntity>();
+    private List<PhoneEntity> phones = new ArrayList<>();
 	@Column(name = "last_login", columnDefinition = "timestamp NULL")
     private Timestamp lastLogin;
 	
