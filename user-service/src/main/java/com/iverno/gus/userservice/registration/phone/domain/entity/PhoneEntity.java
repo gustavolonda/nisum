@@ -43,5 +43,9 @@ public class PhoneEntity extends BaseGeneralEntity{
 	@NotNull
 	@Column(name = "contry_code")
 	private String contryCode;
+	@NotBlank
+	@NotNull
+	@Column(name = "user_id")
+	private String userId;
 
 }

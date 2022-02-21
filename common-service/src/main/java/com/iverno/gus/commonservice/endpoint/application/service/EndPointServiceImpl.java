@@ -38,11 +38,12 @@ public abstract class  EndPointServiceImpl<T, ID> implements IEndPointService<T,
 	@SneakyThrows
 	public List<T> saveAll(List<T> entityList) {
 		try {
-			List<T>  entityListResult = this.getDao().saveAll(entityList);
-			entityListResult.forEach( entity -> {
+			entityList.forEach( entity -> {
 				entity = this.runCreate(entity);
 			});
-			return this.saveAll(entityListResult);
+			List<T>  entityListResult = this.getDao().saveAll(entityList);
+			
+			return entityListResult;
 		}catch (Exception e) {
 			throw new BaseException().builder()
 									.status(StatusResponseDomain.ERROR)

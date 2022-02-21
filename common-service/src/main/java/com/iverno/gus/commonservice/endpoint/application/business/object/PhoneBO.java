@@ -16,4 +16,5 @@ public class PhoneBO {
 	private String number;
 	private String cityCode;
 	private String contryCode;
+	private String userId;
 }

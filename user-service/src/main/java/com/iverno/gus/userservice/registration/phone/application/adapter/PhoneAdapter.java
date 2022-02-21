@@ -14,6 +14,7 @@ public class PhoneAdapter {
 							.number(phoneEntity.getNumber())
 							.cityCode(phoneEntity.getCityCode())
 							.contryCode(phoneEntity.getContryCode())
+							.userId(phoneEntity.getUserId())
 							.build();
 		
 	}
@@ -29,6 +30,7 @@ public class PhoneAdapter {
 							.number(phone.getNumber())
 							.cityCode(phone.getCityCode())
 							.contryCode(phone.getContryCode())
+							.userId(phone.getUserId())
 							.build();
 		
 	}

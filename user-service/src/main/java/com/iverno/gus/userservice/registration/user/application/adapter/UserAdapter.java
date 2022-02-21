@@ -16,7 +16,8 @@ public class UserAdapter {
 							.name(userEntity.getName())
 							.password(userEntity.getPassword())
 							.email(userEntity.getEmail())
-							.phones(PhoneAdapter.phoneEntityListToPhoneBOList(userEntity.getPhones()))
+							.role(userEntity.getRole())
+							.phones(userEntity.getPhones() != null && userEntity.getPhones().size() >= 0 ? PhoneAdapter.phoneEntityListToPhoneBOList(userEntity.getPhones()): new ArrayList<>())
 							.build();
 	}
 	
